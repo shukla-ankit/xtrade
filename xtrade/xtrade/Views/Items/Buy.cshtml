@@ -1,0 +1,87 @@
+﻿@model xtrade.Models.Item
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Item</h4>
+    <hr />
+    <dl class="dl-horizontal">
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Category.CategoryName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Category.CategoryName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Seller)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Seller)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Buyer)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Buyer)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Amount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Amount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+        @for (var i = 0; i < Model.Images.Count; i++)
+        {
+            <dt>
+               Image @(i + 1)
+            </dt>
+            <dd>
+                <img src="~/Images?id=@Model.Images.ElementAt(i).ImageId" 
+                     class="img-thumbnail" alt="@Model.Name" height="900" width="600"/>
+            </dd>
+        }
+
+    </dl>
+</div>
+
+<p> Bought </p>
+
+@if (User.Identity.Name == Model.Seller && Model.Buyer == null)
+{
+    <p>@Html.ActionLink("Edit", "Edit", new { id = Model.Id }, new { @class = "btn btn-primary", @style = "color:white" })</p>
+}
+@if (User.Identity.Name != Model.Seller && Model.Buyer == null)
+{
+    <p>@Html.ActionLink("Buy", "Buy", new { id = Model.Id }, new { @class = "btn btn-primary", @style = "color:white" })</p>
+}
+
+    @Html.ActionLink("Back to List", "Index")
+

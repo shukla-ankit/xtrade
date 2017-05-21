@@ -1,0 +1,96 @@
+﻿@model xtrade.Models.BargainRecord
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>BargainRecord</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Image.ImageName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Image.ImageName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Item.Seller)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Item.Seller)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PrivateIndicator)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PrivateIndicator)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ParentBargainRecordId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ParentBargainRecordId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RootBargainRecordIndicator)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RootBargainRecordIndicator)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BargainerEmail)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BargainerEmail)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Amount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Amount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BargainMessage)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BargainMessage)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AcceptanceIndicator)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AcceptanceIndicator)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>
